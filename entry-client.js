@@ -1,11 +1,12 @@
 // 客户端入口
-import Vue from 'vue'
+// import Vue from 'vue'
 import {createApp} from './app.js'
-const {app, router, store} = createApp()
+// const {app, router, store} = createApp()
+const {app, router} = createApp()
 
-if (window.__INITIAL_STATE__) {
-  store.replaceState(window.__INITIAL_STATE__)
-}
+// if (window.__INITIAL_STATE__) {
+//   store.replaceState(window.__INITIAL_STATE__)
+// }
 
 // Vue.mixin({
 //   beforeRouteUpdate (to, from, next) {
@@ -61,10 +62,10 @@ if (window.__INITIAL_STATE__) {
 //   app.$mount('#app')
 // })
 
-// router.onReady(() => {
-//   app.$mount('#app')
-//   console.log(1)
-// })
+router.onReady(() => {
+  app.$mount('#app')
+  console.log(1)
+})
 
 // router.onReady(() => {
 //   router.beforeResolve((to, from, next) => {
