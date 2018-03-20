@@ -19,7 +19,9 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from './components/Home.vue'
-import Bar from './components/Bar.vue'
+// import Bar from './components/Bar.vue'
+const Bar = () => import('./components/Bar.vue')
+import Item from './components/Item.vue'
 
 Vue.use(Router)
 export function createRouter () {
@@ -31,6 +33,9 @@ export function createRouter () {
     }, {
       path: '/bar',
       component: Bar
+    }, {
+      path: '/item/:id',
+      component: Item
     }]
   })
 }

@@ -7,7 +7,8 @@ module.exports = {
   devtool: 'source-map',
   output: {
     path: path.resolve(__dirname, '../dist'),
-    filename: '[name].js'
+    filename: '[name].js',
+    publicPath: 'http://localhost:8989'
   },
   module: {
     rules: [{
