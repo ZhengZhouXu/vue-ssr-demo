@@ -8,7 +8,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, '../dist'),
     filename: '[name].js',
-    publicPath: 'http://localhost:8989'
+    publicPath: 'http://localhost:8989/'
   },
   module: {
     rules: [{

@@ -2,7 +2,7 @@
 // import Vue from 'vue'
 import {createApp} from './app.js'
 // const {app, router, store} = createApp()
-const {app, router} = createApp()
+const {app, router, store} = createApp()
 
 // if (window.__INITIAL_STATE__) {
 //   store.replaceState(window.__INITIAL_STATE__)
@@ -62,39 +62,36 @@ const {app, router} = createApp()
 //   app.$mount('#app')
 // })
 
-router.onReady(() => {
-  app.$mount('#app')
-  console.log(1)
-})
-
 // router.onReady(() => {
-//   router.beforeResolve((to, from, next) => {
-//     console.log(1111)
-//     const metched = router.getMatchedComponents(to)
-//     const prevMatched = router.getMatchedComponents(from)
-//     let diffed = false
-//     const activated = metched.filter((c, i) => {
-//       return diffed || (diffed = (prevMatched[i] !== c))
-//     })
-
-//     if (!activated.length) {
-//       return next()
-//     }
-
-//     Promise.all(activated.map(c => {
-//       if (c.asyncData) {
-//         return c.asyncData({store, route: to})
-//       }
-//     })).then(() => {
-//       next()
-//     }).catch(next)
-//   })
-
-//   router.afterEach((to, from) => {
-//     console.log('afterEach')
-//     app.$mount('#app')
-//   })
+//   app.$mount('#app')
+//   console.log(1)
 // })
+
+router.onReady(() => {
+  router.beforeResolve((to, from, next) => {
+    console.log(1111)
+    const metched = router.getMatchedComponents(to)
+    const prevMatched = router.getMatchedComponents(from)
+    let diffed = false
+    const activated = metched.filter((c, i) => {
+      return diffed || (diffed = (prevMatched[i] !== c))
+    })
+
+    if (!activated.length) {
+      return next()
+    }
+
+    Promise.all(activated.map(c => {
+      if (c.asyncData) {
+        return c.asyncData({store, route: to})
+      }
+    })).then(() => {
+      next()
+    }).catch(next)
+  })
+
+  app.$mount('#app')
+})
 
 // router.onReady(() => {
 //   router.beforeResolve((to, from, next) => {
