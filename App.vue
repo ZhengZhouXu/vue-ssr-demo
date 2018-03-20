@@ -1,16 +1,11 @@
 <template>
   <div id="app">
-    Hello World
-    <Foo></Foo>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-  import Foo from './components/Foo.vue'
   export default {
-    components: {
-      Foo
-    }
   }
 </script>
 

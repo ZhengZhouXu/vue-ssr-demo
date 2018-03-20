@@ -28,23 +28,6 @@ server.get('*', (req, res) => {
     })
   })
 })
-// server.get('*', (req, res) => {
-//   const context = {
-//     url: req.url
-//   }
-//   renderer.renderToString(context, (err, html) => {
-//     if (err) {
-//       if (err.code === 404) {
-//         res.status(404).end('Page not found')
-//       } else {
-//         res.status(500).end('Internal Server Error')
-//       }
-//     }
-//     else {
-//       res.end(html)
-//     } 
-//   })
-// })
 
 server.listen(8989, (err) => {
   if (err) throw err
