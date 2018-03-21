@@ -16,5 +16,4 @@ export function createApp () {
   })
 
   return {app, router, store}
-  // return {app, router}
 }
